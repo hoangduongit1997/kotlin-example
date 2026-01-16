@@ -1,12 +1,14 @@
 package models
 
+import delegates.RangeRegulator
+
 class SmartLightDevice(val deviceName: String, val deviceCategory: String) : SmartDevice(deviceName, deviceCategory) {
-    var brightnessLevel = 0
-        set(value) {
-            if (value in 0..100) {
-                field = value
-            }
-        }
+    var brightnessLevel by RangeRegulator(
+        initialValue = 0,
+        minValue = 0,
+        maxValue = 100,
+    )
+
 
     override var deviceType = "Android TV"
 

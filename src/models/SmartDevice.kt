@@ -3,6 +3,7 @@ package models
 
 open class SmartDevice(val name: String, val category: String) {
     var deviceStatus: String? = null
+      protected set
     open var deviceType = "unknown"
 
     open fun turnOn() {

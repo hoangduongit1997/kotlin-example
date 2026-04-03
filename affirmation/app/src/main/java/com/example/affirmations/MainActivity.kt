@@ -1,6 +1,10 @@
 package com.example.affirmations
 
+import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -32,10 +36,13 @@ import androidx.compose.ui.unit.dp
 import com.example.affirmations.data.Datasource
 import com.example.affirmations.model.Affirmation
 import com.example.affirmations.ui.theme.AffirmationsTheme
+import com.google.firebase.Firebase
+import com.google.firebase.messaging.messaging
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        logFirebaseToken(this)
         enableEdgeToEdge()
         setContent {
             AffirmationsTheme {
@@ -44,6 +51,23 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+}
+
+fun logFirebaseToken(context: Context){
+    Firebase.messaging.getToken().addOnCompleteListener { task ->
+        if (!task.isSuccessful) {
+            Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+            return@addOnCompleteListener
+        }
+
+        // Get new FCM registration token
+        val token = task.result
+
+        // Log and toast
+        val msg = "FCM Registration token: $token"
+        Log.d(TAG, msg)
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    }
 }
 
 @Composable
@@ -101,6 +125,3 @@ fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
         }
     }
 }
-
-
-

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "259034073151",
+    "project_id": "affirmations-69125",
+    "storage_bucket": "affirmations-69125.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259034073151:android:999451b998f5c9ec06108a",
+        "android_client_info": {
+          "package_name": "com.example.affirmations"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsJzg0_rUFo0xnhl2DfsZnsmiFBcEjTTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

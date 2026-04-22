@@ -1,14 +1,14 @@
 package com.example.unscramble
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.unscramble.ui.screens.GameScreen
+import com.example.unscramble.ui.screens.game.GameScreen
 import com.example.unscramble.ui.theme.UnscrambleTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,12 +17,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             UnscrambleTheme {
-                Scaffold(
+                Surface (
                     modifier = Modifier.fillMaxSize()
-                ){innerPadding->
-                    GameScreen( modifier = Modifier
-                        .padding(innerPadding),
-                    )
+                ){
+                    GameScreen()
                 }
             }
         }
